@@ -17,7 +17,11 @@ local bea = require("lj2beaengine.beaengine")
 -- binary encoding of some instruction
 local code = "\x62\x02\x05\x40\x00\x44\x33\x22"
 
-
+--[[
+    Should generate the following output:
+    
+    vpshufb zmm24, zmm31, zmmword ptr [r11+r14+0880h]
+]]
 local  pDisAsm = ffi.new("DISASM")
 pDisAsm.EIP = ffi.cast("UInt64", code);
 local res = bea.Disasm(pDisAsm)
